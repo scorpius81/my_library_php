@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Sensale\\MyLibraryPhp\\' => array($baseDir . '/src'),
+    'gsensale\\MyLibraryPhp\\' => array($baseDir . '/src'),
 );

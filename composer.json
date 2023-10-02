@@ -1,9 +1,9 @@
 {
-    "name": "sensale/my_library_php",
+    "name": "gsensale/my_library_php",
     "description": "Libreria personale",
     "autoload": {
         "psr-4": {
-            "Sensale\\MyLibraryPhp\\": "src/"
+            "gsensale\\MyLibraryPhp\\": "src/"
         },
         "files": [
             "src/utils.php"
