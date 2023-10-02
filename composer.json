@@ -1,0 +1,16 @@
+{
+    "name": "sensale/my_library_php",
+    "description": "Libreria personale",
+    "autoload": {
+        "psr-4": {
+            "Sensale\\MyLibraryPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gianpaolo",
+            "email": "g.sensale@gmail.com"
+        }
+    ],
+    "require": {}
+}
