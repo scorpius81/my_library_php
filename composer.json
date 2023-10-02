@@ -4,7 +4,10 @@
     "autoload": {
         "psr-4": {
             "Sensale\\MyLibraryPhp\\": "src/"
-        }
+        },
+        "files": [
+            "src/utils.php"
+        ]
     },
     "authors": [
         {
