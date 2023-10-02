@@ -1,6 +1,6 @@
 <?php
 
-namespace Sensale\App;
+namespace gsensale\App;
 
 class Utils {
 
