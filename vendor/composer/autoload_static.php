@@ -15,12 +15,20 @@ class ComposerStaticInitd553648631023c1f003823948f73c9ea
         array (
             'gsensale\\MyLibraryPhp\\' => 22,
         ),
+        'P' => 
+        array (
+            'PalePurple\\RateLimit\\' => 21,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'gsensale\\MyLibraryPhp\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'PalePurple\\RateLimit\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/palepurple/rate-limit/src',
         ),
     );
 

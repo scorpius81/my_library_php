@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'gsensale\\MyLibraryPhp\\' => array($baseDir . '/src'),
+    'PalePurple\\RateLimit\\' => array($vendorDir . '/palepurple/rate-limit/src'),
 );

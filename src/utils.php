@@ -1,9 +1,36 @@
 <?php
 
+
+
 namespace gsensale\App;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use \PalePurple\RateLimit\RateLimit;
+use \PalePurple\RateLimit\Adapter\Redis as RedisAdapter;
+
 
 class Utils {
 
+    public $redis_host;
+    public $redis_port;
+    public $redis_pass;
+    public $RateLimitMaxRequest;
+    public $RateLimitRequestTime;
+    public $RateLimitIPCheck;
+
+
+    public function __construct()
+    {
+        $this->redis_host='127.0.0.1';
+        $this->redis_port='6379';
+        $this->redis_pass='';
+
+        if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+        $this->RateLimitIPCheck = $_SERVER['REMOTE_ADDR']; // Use client IP as identity
+        $this->RateLimitMaxRequest= 100;
+        $this->RateLimitRequestTime= 3600;
+    }
     public function getSgilaNazioneFromNome($nomeNazione){
         $nazioni_it = array(
             'AF' => 'Afghanistan',
@@ -374,6 +401,21 @@ class Utils {
 
           return $province[Ucwords($nomeProvincia)];
     }
-    
+    public function RateLimit(){
+        $redis = new \Redis(); 
+        $redis->connect($this->redis_host, $this->redis_port); 
+        $adapter = new RedisAdapter(($redis)); 
+        if ($this->redis_pass!='') $redis->auth($this->redis_pass);
+        
+
+        $rateLimit = new RateLimit("myratelimit", $this->RateLimitMaxRequest, $this->RateLimitRequestTime, $adapter); // 100 Requests / Hour
+
+        
+        $id = $this->RateLimitIPCheck;
+        if (!$rateLimit->check($id)) {
+            echo "Rate limit exceeded";
+            exit();
+        }
+    }
 }
 ?>

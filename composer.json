@@ -15,5 +15,7 @@
             "email": "g.sensale@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "palepurple/rate-limit": "^2.0"
+    }
 }
