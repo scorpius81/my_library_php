@@ -417,7 +417,7 @@ class Utils {
             }
         } catch(\RedisException $ex) {
             $m = $ex->getMessage();
-            echo "ERROR: REDIS ($m)\n";
+            error_log("ERROR: REDIS ($m)\n");
         }
         
     }
