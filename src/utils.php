@@ -401,19 +401,25 @@ class Utils {
     }
     public function RateLimit(){
         $redis = new \Redis(); 
-        $redis->connect($this->redis_host, $this->redis_port); 
-        $adapter = new RedisAdapter(($redis)); 
-        if ($this->redis_pass!='') $redis->auth($this->redis_pass);
-        
+        //$redis->connect($this->redis_host, $this->redis_port); 
 
-        $rateLimit = new RateLimit("myratelimit", $this->RateLimitMaxRequest, $this->RateLimitRequestTime, $adapter); // 100 Requests / Hour
+        try {
+            $redis->connect($this->redis_host, $this->redis_port); 
+            $adapter = new RedisAdapter(($redis)); 
+            if ($this->redis_pass!='') $redis->auth($this->redis_pass);
+            $rateLimit = new RateLimit("myratelimit", $this->RateLimitMaxRequest, $this->RateLimitRequestTime, $adapter); // 100 Requests / Hour
 
-        
-        $id = $this->RateLimitIPCheck;
-        if (!$rateLimit->check($id)) {
-            echo "Rate limit exceeded";
-            exit();
+            
+            $id = $this->RateLimitIPCheck;
+            if (!$rateLimit->check($id)) {
+                echo "Rate limit exceeded";
+                exit();
+            }
+        } catch(\RedisException $ex) {
+            $m = $ex->getMessage();
+            echo "ERROR: REDIS ($m)\n";
         }
+        
     }
 }
 ?>
