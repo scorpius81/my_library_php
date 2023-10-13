@@ -4,8 +4,6 @@
 
 namespace gsensale\App;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use \PalePurple\RateLimit\RateLimit;
 use \PalePurple\RateLimit\Adapter\Redis as RedisAdapter;
 
