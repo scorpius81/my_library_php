@@ -16,6 +16,7 @@
         }
     ],
     "require": {
-        "palepurple/rate-limit": "^2.0"
+        "palepurple/rate-limit": "^2.0",
+        "chillerlan/php-qrcode": "^5.0"
     }
 }

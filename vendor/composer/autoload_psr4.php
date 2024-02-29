@@ -7,5 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'gsensale\\MyLibraryPhp\\' => array($baseDir . '/src'),
+    'chillerlan\\Settings\\' => array($vendorDir . '/chillerlan/php-settings-container/src'),
+    'chillerlan\\QRCode\\' => array($vendorDir . '/chillerlan/php-qrcode/src'),
     'PalePurple\\RateLimit\\' => array($vendorDir . '/palepurple/rate-limit/src'),
 );

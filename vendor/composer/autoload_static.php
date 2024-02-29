@@ -15,6 +15,11 @@ class ComposerStaticInitd553648631023c1f003823948f73c9ea
         array (
             'gsensale\\MyLibraryPhp\\' => 22,
         ),
+        'c' => 
+        array (
+            'chillerlan\\Settings\\' => 20,
+            'chillerlan\\QRCode\\' => 18,
+        ),
         'P' => 
         array (
             'PalePurple\\RateLimit\\' => 21,
@@ -25,6 +30,14 @@ class ComposerStaticInitd553648631023c1f003823948f73c9ea
         'gsensale\\MyLibraryPhp\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'chillerlan\\Settings\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-settings-container/src',
+        ),
+        'chillerlan\\QRCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
         ),
         'PalePurple\\RateLimit\\' => 
         array (
