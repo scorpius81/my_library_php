@@ -476,5 +476,16 @@ class Utils {
         $out = (new QRCode($options))->render($coupon_codice);
         return $out;
     }
+
+    public function base64ToImage($base64_string, $output_file) {
+        $file = fopen($output_file, "w");
+    
+        $data = explode(',', $base64_string);
+    
+        fwrite($file, base64_decode($data[1]));
+        fclose($file);
+    
+        return $output_file;
+    }
 }
 ?>
