@@ -494,7 +494,9 @@ class Utils {
         // Generate an initialization vector
        //$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
     
-        $ciphering = "BF-CBC";
+        //$ciphering = "BF-CBC";
+        $ciphering = "AES-128-CBC";
+
         $iv_length = openssl_cipher_iv_length($ciphering);
         $options = 0;
          
