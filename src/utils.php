@@ -508,5 +508,15 @@ class Utils {
         // The $iv is just as important as the key for decrypting, so save it with our encrypted data using a unique separator (::)
         return base64_encode($encrypted . '::' . $iv);
     }
+
+    function my_decrypt($data, $key) {
+        // Remove the base64 encoding from our key
+        $encryption_key = base64_decode($key);
+        //$ciphering = "BF-CBC";
+        $ciphering = "AES-128-CBC";
+        // To decrypt, split the encrypted data from our IV - our unique separator used was "::"
+        list($encrypted_data, $iv) = explode('::', base64_decode($data), 2);
+        return openssl_decrypt($encrypted_data, $ciphering , $encryption_key, 0, $iv);
+    }
 }
 ?>
