@@ -518,5 +518,22 @@ class Utils {
         list($encrypted_data, $iv) = explode('::', base64_decode($data), 2);
         return openssl_decrypt($encrypted_data, $ciphering , $encryption_key, 0, $iv);
     }
+
+    function DiffDataTimeToMinute($dateTimeObject1,$dateTimeObject2){
+
+        //    echo "dateTimeObject1: $dateTimeObject1\n";
+        //    echo "dateTimeObject2: $dateTimeObject2\n";
+        
+            $dateTimeObject1 = date_create($dateTimeObject1); 
+            $dateTimeObject2 = date_create($dateTimeObject2); 
+            
+            $difference = date_diff($dateTimeObject1, $dateTimeObject2); 
+            $minutes = $difference->days * 24 * 60;
+            $minutes += $difference->h * 60;
+            $minutes += $difference->i;
+        
+            return $minutes;
+    
+    }
 }
 ?>
